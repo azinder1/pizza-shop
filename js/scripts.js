@@ -9,16 +9,16 @@ Receipt.prototype.priceCalculator = function () {
   for (i = 0; i < this.ingredients.length; i++) {
     this.price += 1;
   }
-  if (this.pizzaSize === "Small") {
+  if (this.pizzaSize === "SMALL") {
     this.price += 8;
   }
-   else if (this.pizzaSize === "Medium") {
+   else if (this.pizzaSize === "MEDIUM") {
      this.price += 10;
   }
-  else if (this.pizzaSize === "Large") {
+  else if (this.pizzaSize === "LARGE") {
     this.price += 12;
   }
-  else if (this.pizzaSize === "Extra Large") {
+  else if (this.pizzaSize === "EXTRA LARGE") {
     this.price += 14;
   }
   return this.price
@@ -31,14 +31,14 @@ Receipt.prototype.ingredientBreaker = function () {
   }
    else if (this.ingredients.length >= 2) {
      debugger;
-     this.ingredients = this.ingredients.splice(this.ingredients.length,0,"and")
-     this.ingredients = this.ingredients.join(", ")
-     return this.ingredients
+     //this.ingredients = this.ingredients.splice(this.ingredients.length-1,0,"and");
+     this.ingredients = this.ingredients.join(", ");
+     return this.ingredients;
    }
 }
 
-var vegIngredients = ['tomatoes', 'onions', 'mushrooms', 'olives', 'peppers', 'artichoke']
-var vegAndMeatIngredients = ['chicken', 'sausage', 'pepperoni', 'tomatoes', 'onions', 'mushrooms', 'olives', 'peppers', 'artichoke']
+var vegIngredients = ['Tomatoes', 'Onions', 'Mushrooms', 'Olives', 'Peppers', 'Artichokes']
+var vegAndMeatIngredients = ['Chicken', 'Sausage', 'Pepperoni', 'Tomatoes', 'Onions', 'Mushrooms', 'olives', 'peppers', 'artichokes']
 
 
 $(document).ready(function(){
@@ -48,12 +48,12 @@ $(document).ready(function(){
     var preference = $("input:radio[name=preference]:checked").val();
     if (preference === "yes") {
       vegIngredients.forEach(function(vegIngredient){
-        $('.pizzaIngredients p').append('<input type=\"checkbox\" name=\"ingredients\" value=\"'+ vegIngredient + '\">' + vegIngredient +'<br>')
+        $('.pizzaIngredients p').append('<input type=\"checkbox\" name=\"ingredients\" value=\"'+ vegIngredient + '\">' +" " + vegIngredient +'<br>')
       });
     }
     else {
       vegAndMeatIngredients.forEach(function(vegAndMeatIngredient){
-        $('.pizzaIngredients p').append('<input type=\"checkbox\" name=\"ingredients\" value=\"'+ vegAndMeatIngredient + '\">' + vegAndMeatIngredient +'<br>')
+        $('.pizzaIngredients p').append('<input type=\"checkbox\" name=\"ingredients\" value=\"'+ vegAndMeatIngredient + '\">' +" " + vegAndMeatIngredient +'<br>')
       });
     }
     $('form#pizzaForm').show();
@@ -63,7 +63,7 @@ $(document).ready(function(){
     var inputtedIngredients = [];
     $("input:checkbox[name=ingredients]:checked").each(function(){
       var eachIngredient = $(this).val();
-      //eachIngredient = eachIngredient.toUpperCase()
+      eachIngredient = eachIngredient.toUpperCase()
       inputtedIngredients.push(eachIngredient);
     });
     var inputtedSize =  $("#pizzaSizeOption").val();
