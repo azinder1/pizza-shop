@@ -1,7 +1,27 @@
-function Receipt(ingredients, pizzaSize) {
-  this.ingredients = ingredients;
+function Receipt(ingredient, pizzaSize) {
+  this.ingredient = ingredient;
   this.pizzaSize = pizzaSize;
-  //this.price = price;
+  this.price = 0
+}
+
+Receipt.prototype.priceCalculator = function () {
+  debugger;
+  this.price = 0;
+  for (i = 0; i < this.ingredient.length; i++) {
+    this.price += 1;
+  }
+  if (this.pizzaSize === "Small") {
+    this.price += 8;
+  }
+   else if (this.pizzaSize === "Medium") {
+     this.price += 10;
+  }
+  else if (this.pizzaSize === "Large") {
+    this.price += 12;
+  }
+  else if (this.pizzaSize === "Extra Large") {
+    this.price += 14;
+  }
 }
 
 var vegIngredients = ['tomatoes', 'onions', 'mushrooms', 'olives', 'peppers', 'artichoke']
@@ -21,6 +41,7 @@ $(document).ready(function(){
       vegAndMeatIngredients.forEach(function(vegAndMeatIngredient){
         $('.pizzaIngredients p').append('<input type=\"checkbox\" name=\"ingredients\" value=\"'+ vegAndMeatIngredient + '\">' + vegAndMeatIngredient +'<br>')
       });
+      ('form#preferenceForm').hide()
     }
   });
   $('form#pizzaForm').submit(function(event){
@@ -31,8 +52,7 @@ $(document).ready(function(){
       inputtedIngredients.push(eachIngredient);
     });
     var inputtedSize =  $("#pizzaSizeOption").val();
-    console.log(inputtedSize);
-    console.log(inputtedIngredients);
-    var pizzaOrder = new Receipt (inputtedSize, InputtedIngredients)
+    var pizzaOrder = new Receipt (inputtedIngredients, inputtedSize)
+    pizzaOrder.price = pizzaOrder.priceCalculator(pizzaOrder);
   });
 });
