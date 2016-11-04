@@ -9,24 +9,24 @@ Receipt.prototype.priceCalculator = function () {
   for (i = 0; i < this.ingredients.length; i++) {
     this.price += 1;
   }
-  if (this.pizzaSize === "SMALL") {
+  if (this.pizzaSize === "12") {
     this.price += 8;
   }
-   else if (this.pizzaSize === "MEDIUM") {
+   else if (this.pizzaSize === "15") {
      this.price += 10;
   }
-  else if (this.pizzaSize === "LARGE") {
-    this.price += 12;
+  else if (this.pizzaSize === "17") {
+    this.price += 13;
   }
-  else if (this.pizzaSize === "EXTRA LARGE") {
-    this.price += 14;
+  else if (this.pizzaSize === "22") {
+    this.price += 17;
   }
-  return this.price
+  return this.price;
 }
 Receipt.prototype.ingredientBreaker = function () {
   if (this.ingredients.length === 1) {
     this.ingredients = this.ingredients.join();
-    return this.ingredients
+    return this.ingredients;
   }
    else if (this.ingredients.length >= 2) {
      //this.ingredients = this.ingredients.splice(this.ingredients.length-1,0,"and");
@@ -63,19 +63,24 @@ $(document).ready(function(){
   });
   $('form#pizzaForm').submit(function(event){
     event.preventDefault();
+    $('.confirmation').show();
     var inputtedIngredients = [];
-    $("input:checkbox[name=ingredients]:checked").each(function(){
+    $('input:checkbox[name=ingredients]:checked').each(function(){
       var eachIngredient = $(this).val();
-      eachIngredient = eachIngredient.toUpperCase()
+      eachIngredient = eachIngredient.toUpperCase();
       inputtedIngredients.push(eachIngredient);
     });
-    var inputtedSize =  $("#pizzaSizeOption").val();
+    var inputtedSize =  $("#pizzaSizeOption").val()
+    if (inputtedSize ==="choose") {
+      alert("Please enter a pizza size")
+        $('.confirmation').hide();
+    }
+
     var pizzaOrder = new Receipt (inputtedIngredients, inputtedSize)
     pizzaOrder.price = pizzaOrder.priceCalculator(pizzaOrder);
-    $('.survey').hide();
-    $('.userSize').text(pizzaOrder.pizzaSize);
+    $('.userSize').text("");
+    $('.userSize').append('&#960;' + pizzaOrder.pizzaSize + 'cm&sup2;');
     $('.userIngredients').text(pizzaOrder.ingredientBreaker());
     $('.pizzaPrice').text(pizzaOrder.price);
-    $('.confirmation').show();
   });
 });

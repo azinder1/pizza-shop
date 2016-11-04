@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
@@ -14,9 +13,9 @@
         <h1>Pi in the Sky</h1>
       </div>
       <div class="row">
-        <div class="col-md-8 col-md-offset-2 well survey">
+        <div class="col-md-5 well survey">
           <form id="preferenceForm">
-            <p><strong>Are you a vegetarian?</strong></p>
+            <p><strong>Are a vegetarian?</strong></p>
             <div class="radio">
               <label>
                 <input type="radio" name="preference" value="yes">
@@ -38,22 +37,21 @@
             <div>
               <p><strong>Please select your pizza size:</strong></p>
               <select id="pizzaSizeOption" class="form-control">
-                <option>SMALL</option>
-                <option>MEDIUM</option>
-                <option>LARGE</option>
-                <option>EXTRA-LARGE</option>
+                <option value="choose">Choose Your Radius</option>
+                <option value="12">&#960;12cm&sup2;</option>
+                <option value="15">&#960;15cm&sup2;</option>
+                <option value="17">&#960;17cm&sup2;</option>
+                <option value="22">&#960;22cm&sup2;</option>
               </select>
             </div>
             <button type="submit" class="btn" id="enterPizza">Buy Pizza</button>
           </form>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2  confirmation well">
+        <div class="col-md-5 col-md-offset-2 confirmation well">
           <h2>You're all set</h2>
           <p>Your <span class="userSize"></span> pizza with <span class="userIngredients"></span>.<br>  Your total price is $<span class="pizzaPrice"></span>.00.</p>
           <br>
-          <p>We put a lot of love into your pizza--which takes time.  Please give us 20-30 minutes before picking up</p>
+          <p>We put a lot of love into making your pizza--which takes time.  Please give us 20-30 minutes before picking up</p>
         </div>
       </div>
     </div>
