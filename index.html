@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <script src="js/jquery-3.1.1.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <title>Pizza Shop</title>
   </head>
@@ -14,19 +14,26 @@
         <h1>Pizza Shop</h1>
       </div>
       <div class="row">
-        <div class="col-md-12">
-          <form id="pizzaForm">
-            <div class="form-group">
-              <label for="userPizza">Please enter whether you're a vegetarian:</label>
-              <input type="number" class="form-control" id="userPizza" value="1">
+        <div class="col-md-8">
+          <form id="preferenceForm">
+            <p>Are you a vegetarian? Please answer yes or no and then click the button below</p>
+            <div class="radio">
+              <label>
+                <input type="radio" name="preference" value="yes">
+                Yes
+              </label>
             </div>
-            <button type="submit" name="button" class="btn">Get Pizza</button>
+            <div class="radio">
+              <label>
+                <input type="radio" name="preference" value="no">
+                No
+              </label>
+            </div>
+            <button type="submit" name="button" class="btn">Submit</button>
           </form>
           <form id="pizzaForm">
             <div class="form-group pizzaIngredients">
               <p>Pick your ingedients:</p>
-              <label for="pizzaIngredients">Ingredient:</label>
-              <input type="text" id="ingredients" value="1" class="form-control">
             </div>
           </form>
           <form id="pizzaSize">
@@ -42,7 +49,7 @@
       <div class="row">
         <div class="col-md-12 confirmation">
           <h2>You're all done</h2>
-          <p>Your <span class="userSize"></span> with <span class="pizzaIngredients"></span>.  Your ticket was $<span class="pizzaPrice"></span>.00.</p>
+          <p>Your <span class="userSize"></span> with <span class="userIngredients"></span>.  Your total price is $<span class="pizzaPrice"></span>.00.</p>
           <br>
         </div>
       </div>
