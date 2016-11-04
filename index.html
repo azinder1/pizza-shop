@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-md-8">
           <form id="preferenceForm">
-            <p>Are you a vegetarian? Please answer yes or no and then click the button below</p>
+            <p><strong>Are you a vegetarian?</strong></p>
             <div class="radio">
               <label>
                 <input type="radio" name="preference" value="yes">
@@ -33,13 +33,15 @@
           </form>
           <form id="pizzaForm">
             <div class="form-group pizzaIngredients">
-              <p>Pick your ingedients:</p>
+              <p><strong>Pick your ingedients:</strong><br></p>
             </div>
-          </form>
-          <form id="pizzaSize">
             <div>
-              <p>Please select a pizza size: <span class="userSize"></span>:</p>
-              <select id="pizzaSizeOptions" class="form-control">
+              <p><strong>Please select your pizza size:</strong></p>
+              <select id="pizzaSizeOption" class="form-control">
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>Extra-Large</option>
               </select>
             </div>
             <button type="submit" class="btn" id="enterPizza">Buy Pizza</button>
