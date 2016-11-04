@@ -10,7 +10,7 @@ _Can take in user preferences for pizza order and can output cost_
 
 ## Setup/Installation Requirements
 
-* _https://azinder1.github.io/pizza-shop/_
+* _https://azinder1.github.io/pizza-shop/
 
 ## Known Bugs
 
