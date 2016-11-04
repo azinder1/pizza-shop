@@ -24,13 +24,11 @@ Receipt.prototype.priceCalculator = function () {
   return this.price
 }
 Receipt.prototype.ingredientBreaker = function () {
-  debugger;
   if (this.ingredients.length === 1) {
     this.ingredients = this.ingredients.join();
     return this.ingredients
   }
    else if (this.ingredients.length >= 2) {
-     debugger;
      //this.ingredients = this.ingredients.splice(this.ingredients.length-1,0,"and");
      this.ingredients = this.ingredients.join(", ");
      return this.ingredients;
@@ -38,7 +36,7 @@ Receipt.prototype.ingredientBreaker = function () {
 }
 
 var vegIngredients = ['Tomatoes', 'Onions', 'Mushrooms', 'Olives', 'Peppers', 'Artichokes']
-var vegAndMeatIngredients = ['Chicken', 'Sausage', 'Pepperoni', 'Tomatoes', 'Onions', 'Mushrooms', 'olives', 'peppers', 'artichokes']
+var vegAndMeatIngredients = ['Chicken', 'Sausage', 'Pepperoni', 'Tomatoes', 'Onions', 'Mushrooms', 'Olives', 'Peppers', 'Artichokes']
 
 
 $(document).ready(function(){
@@ -74,7 +72,7 @@ $(document).ready(function(){
     var inputtedSize =  $("#pizzaSizeOption").val();
     var pizzaOrder = new Receipt (inputtedIngredients, inputtedSize)
     pizzaOrder.price = pizzaOrder.priceCalculator(pizzaOrder);
-    $('form#pizzaForm').hide();
+    $('.survey').hide();
     $('.userSize').text(pizzaOrder.pizzaSize);
     $('.userIngredients').text(pizzaOrder.ingredientBreaker());
     $('.pizzaPrice').text(pizzaOrder.price);

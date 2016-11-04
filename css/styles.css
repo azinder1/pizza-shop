@@ -4,7 +4,7 @@ body {
 }
 .header h1{
   font-size: 100px;
-  color:#6d0c0f;
+  color:#2767ce;
   text-align: center;
   text-shadow:  0px 2px black;
   background-image: url(../img/pizza-background.jpg);
@@ -14,4 +14,9 @@ body {
 
 #pizzaForm, .confirmation{
   display: none;
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
 }
