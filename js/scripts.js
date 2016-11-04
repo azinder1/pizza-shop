@@ -31,6 +31,7 @@ var vegAndMeatIngredients = ['chicken', 'sausage', 'pepperoni', 'tomatoes', 'oni
 $(document).ready(function(){
   $('form#preferenceForm').submit(function(event){
     event.preventDefault();
+    $('form#preferenceForm').hide();
     var preference = $("input:radio[name=preference]:checked").val();
     if (preference === "yes") {
       vegIngredients.forEach(function(vegIngredient){
@@ -41,8 +42,8 @@ $(document).ready(function(){
       vegAndMeatIngredients.forEach(function(vegAndMeatIngredient){
         $('.pizzaIngredients p').append('<input type=\"checkbox\" name=\"ingredients\" value=\"'+ vegAndMeatIngredient + '\">' + vegAndMeatIngredient +'<br>')
       });
-      ('form#preferenceForm').hide()
     }
+    $('form#pizzaForm').show();
   });
   $('form#pizzaForm').submit(function(event){
     event.preventDefault();
@@ -55,4 +56,5 @@ $(document).ready(function(){
     var pizzaOrder = new Receipt (inputtedIngredients, inputtedSize)
     pizzaOrder.price = pizzaOrder.priceCalculator(pizzaOrder);
   });
+
 });
