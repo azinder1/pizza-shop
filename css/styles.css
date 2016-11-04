@@ -3,13 +3,14 @@ body {
   background-image: url(../img/background.jpg);
 }
 .header h1{
-  font-size: 100px;
-  color:#2767ce;
+  font-size: 120px;
+  color:#4979c6;
   text-align: center;
-  text-shadow:  0px 2px black;
+  text-shadow:  0px 3px black;
   background-image: url(../img/pizza-background.jpg);
   margin-top: 40px;
   margin-bottom:60px;
+  border-radius: 5px;
 }
 
 #pizzaForm, .confirmation{
